@@ -231,14 +231,14 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
   .site-header nav a { font-size: 10px; }
 
   .hero { min-height: 680px; height: calc(100svh - 32px); max-height: 900px; padding: 0; }
-  .hero-media { background-image: url("assets/producto-vertical.webp"); background-size: cover; background-position: center center; }
+  .hero-media { background-image: url("assets/producto-horizontal.webp"); background-size: cover; background-position: center top; }
   /* En móvil repetimos sólo la zona superior de la botella por encima del header.
      Así la tapa queda completa sin desplazar el texto ni cambiar el encuadre general. */
   .hero-bottle-overlap {
     display: block;
-    background-image: url("assets/producto-vertical.webp");
+    background-image: url("assets/producto-horizontal.webp");
     background-size: cover;
-    background-position: center center;
+    background-position: center top;
     background-repeat: no-repeat;
     clip-path: polygon(44% 0, 70% 0, 70% 30%, 64% 36%, 48% 36%, 44% 30%);
     z-index: 1001;
@@ -275,7 +275,7 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
   .year { margin-bottom: 8px; font-size: 30px; }
 
   .purchase { min-height: 650px; }
-  .purchase-media { background-image: url("assets/producto-vertical.webp"); background-size: cover; background-position: center center; }
+  .purchase-media { background-image: url("assets/producto-horizontal.webp"); background-size: cover; background-position: center top; }
   .site-footer { grid-template-columns: 1fr; gap: 32px; padding: 45px 7vw; justify-items: center; text-align: center; }
   .footer-brand, .footer-social { justify-content: center; }
   .footer-legal { align-items: center; text-align: center; }
@@ -288,9 +288,9 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
   .site-header { padding-inline: 18px; }
   .brand-logo img { width: 132px; }
   .hero { min-height: 620px; max-height: 820px; }
-  .hero-media { background-position: 42% top; }
+  .hero-media { background-position: center top; }
   .hero-bottle-overlap {
-    background-position: 42% top;
+    background-position: center top;
     clip-path: polygon(43% 0, 72% 0, 72% 31%, 66% 37%, 48% 37%, 43% 31%);
   }
   .hero-content { left: 4.5vw; top: 32%; width: 42vw; max-width: 165px; }
