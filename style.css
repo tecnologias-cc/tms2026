@@ -431,3 +431,52 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Ajuste del sello de edición limitada en móvil: mantenerlo completo dentro del viewport */
+@media (max-width: 560px) {
+  .hero-content .limited-release {
+    box-sizing: border-box;
+    width: min(300px, calc(100vw - 38px));
+    max-width: none;
+    padding: 8px 18px 9px;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: visible;
+  }
+  .hero-content .limited-release small {
+    font-size: 7px;
+    letter-spacing: .18em;
+    text-indent: .18em;
+    white-space: nowrap;
+  }
+  .hero-content .limited-release b {
+    font-size: clamp(14px, 4.1vw, 17px);
+    letter-spacing: .035em;
+    white-space: nowrap;
+  }
+  .hero-content .limited-flower {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+  }
+  .hero-content .limited-flower-left { left: -9px; }
+  .hero-content .limited-flower-right { right: -9px; }
+  .hero-content .limited-release::before,
+  .hero-content .limited-release::after {
+    width: 12px;
+    height: 24px;
+  }
+  .hero-content .limited-release::before { left: -6px; }
+  .hero-content .limited-release::after { right: -6px; }
+}
+
+@media (max-width: 380px) {
+  .hero-content .limited-release {
+    width: min(280px, calc(100vw - 30px));
+    padding-inline: 15px;
+  }
+  .hero-content .limited-release b {
+    font-size: 13px;
+    letter-spacing: .025em;
+  }
+}
