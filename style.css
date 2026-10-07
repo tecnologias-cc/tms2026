@@ -28,9 +28,46 @@ body, p, li, dt, dd, small, nav a, .age-note, .menu-btn,
 h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", Georgia, serif; }
 
 .age-note {
-  min-height: 32px; display: grid; place-items: center; padding: 8px 4vw;
+  min-height: 32px;
   background: var(--paper); color: var(--ink); font-size: 9px; font-weight: 600;
   letter-spacing: .12em; text-transform: uppercase; text-align: center;
+}
+
+/* Franja promocional continua */
+.promo-marquee {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+}
+.promo-marquee-track {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  will-change: transform;
+  animation: promo-marquee-scroll 18s linear infinite;
+}
+.promo-marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.promo-marquee-group span {
+  display: inline-block;
+  padding: 8px clamp(22px, 3.2vw, 52px);
+}
+.promo-marquee-group i {
+  color: var(--gold);
+  font-style: normal;
+  font-size: 1.15em;
+}
+@keyframes promo-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-marquee-track { animation: none; }
 }
 
 /* Header */
@@ -364,7 +401,9 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
 
 /* Phones */
 @media (max-width: 560px) {
-  .age-note { font-size: 7.5px; letter-spacing: .06em; padding-inline: 16px; }
+  .age-note { font-size: 8px; letter-spacing: .08em; }
+  .promo-marquee-track { animation-duration: 14s; }
+  .promo-marquee-group span { padding-inline: 24px; }
   .site-header { padding-inline: 18px; }
   .brand-logo img { width: 132px; }
   .hero { min-height: 620px; max-height: 820px; }
@@ -565,4 +604,27 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
     width: 48vw;
   }
   .hero-content .limited-release b { font-size: 12px; }
+}
+
+/* ENVÍO GRATIS — acento promocional dorado */
+.age-note.promo-marquee {
+  background: #EFB52F;
+  color: #100d08;
+  font-weight: 800;
+  letter-spacing: .14em;
+  box-shadow: 0 1px 0 rgba(255,255,255,.14), 0 3px 14px rgba(0,0,0,.18);
+}
+.age-note.promo-marquee .promo-marquee-group span {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+.age-note.promo-marquee .promo-marquee-group i {
+  color: #100d08;
+  opacity: .72;
+}
+@media (max-width: 900px) {
+  .age-note.promo-marquee {
+    font-size: 9px;
+    letter-spacing: .12em;
+  }
 }
