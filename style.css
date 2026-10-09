@@ -628,3 +628,67 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
     letter-spacing: .12em;
   }
 }
+
+/* Precio en el hero — versión online octubre 2026 */
+.hero-price {
+  margin: 0 0 14px;
+  color: #efbb42;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(24px, 2.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: .025em;
+  white-space: nowrap;
+  text-shadow: 0 2px 12px rgba(0,0,0,.4);
+}
+.hero-price span { font-family: "Inter", Arial, sans-serif; font-size: .38em; letter-spacing: .12em; vertical-align: middle; }
+@media (max-width: 900px) {
+  .hero-price { font-size: clamp(17px, 3.8vw, 25px); margin-bottom: 8px; }
+}
+@media (max-width: 560px) {
+  .hero-price { font-size: clamp(15px, 4vw, 20px); margin-bottom: 7px; }
+}
+@media (max-width: 380px) {
+  .hero-price { font-size: 15px; }
+}
+
+/* Precio protagonista — sello a la derecha en escritorio; tipografía limpia en móvil */
+@keyframes price-orbit { from { transform: rotate(-5deg); } to { transform: rotate(355deg); } }
+@keyframes price-glow { 0%,100% { box-shadow: 0 0 0 1px rgba(239,187,66,.25), 0 0 22px rgba(239,181,47,.09); } 50% { box-shadow: 0 0 0 1px rgba(239,187,66,.6), 0 0 42px rgba(239,181,47,.24); } }
+@media (min-width: 901px) {
+  .hero-content .hero-price {
+    position: absolute; left: calc(100vw - 2 * var(--page-pad) - 370px);
+    top: 50%; transform: translateY(-50%);
+    width: clamp(200px, 19vw, 300px); aspect-ratio: 1;
+    margin: 0; border: 1px solid rgba(239,187,66,.72); border-radius: 50%;
+    background: radial-gradient(circle, rgba(61,36,12,.32), rgba(5,3,2,.18) 68%, transparent);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 7px; text-align: center; white-space: normal;
+    animation: price-glow 4s ease-in-out infinite;
+  }
+  .hero-content .hero-price::before { content: ''; position: absolute; inset: 9px; border: 1px dashed rgba(239,187,66,.58); border-radius: 50%; animation: price-orbit 38s linear infinite; pointer-events: none; }
+  .hero-content .hero-price strong { font-size: clamp(43px, 4.1vw, 65px); }
+}
+.hero-content .hero-price strong { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; line-height: .9; letter-spacing: -.025em; }
+.hero-content .hero-price .price-kicker { font-family: 'Inter', Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .20em; color: #f4dfad; }
+.hero-content .hero-price .price-cents { font-family: 'Cormorant Garamond', Georgia, serif; font-size: .55em; letter-spacing: 0; }
+.hero-content .hero-price .price-currency { font-family: 'Inter', Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .22em; }
+@media (min-width: 901px) and (max-width: 1180px) {
+  .hero-content .hero-price { left: calc(100vw - 2 * var(--page-pad) - 305px); width: 190px; }
+  .hero-content .hero-price strong { font-size: 43px; }
+}
+@media (max-width: 900px) {
+  .hero-content .hero-price { order: 3; position: static; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: auto; max-width: 100%; margin: 0 0 13px; padding: 0; border: 0; background: none; box-shadow: none; white-space: nowrap; }
+  .hero-content .hero-price::before { display: none; }
+  .hero-content .hero-price .price-kicker { font-size: clamp(7px, 1.8vw, 9px); letter-spacing: .10em; }
+  .hero-content .hero-price strong { font-size: clamp(27px, 6vw, 37px); }
+  .hero-content .hero-price .price-currency { font-size: 9px; letter-spacing: .12em; }
+  .hero-content .button { order: 4; }
+}
+@media (max-width: 560px) {
+  .hero-content .hero-price { margin-bottom: 10px; }
+  .hero-content .hero-price strong { font-size: clamp(25px, 6.3vw, 31px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-content .hero-price, .hero-content .hero-price::before { animation: none !important; }
+}
