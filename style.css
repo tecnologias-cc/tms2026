@@ -754,3 +754,35 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
   .site-header nav .nav-amazon { padding: 5px 16px; min-height: 46px; }
   .site-header nav .nav-amazon .nav-amazon-logo { width: 112px; height: 48px; }
 }
+
+/* Acceso Amazon junto al botón Comprar: solo en el hero móvil. */
+.hero-content .hero-amazon-mobile { display: none; }
+@media (max-width: 900px) {
+  .hero-content .hero-amazon-mobile {
+    order: 5;
+    display: inline-flex;
+    position: relative;
+    inset: auto;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: clamp(94px, 27vw, 126px);
+    max-width: 100%;
+    margin: 10px 0 0;
+    padding: 5px 9px;
+    background: #fff;
+    border-radius: 11px;
+    box-shadow: 0 5px 18px rgba(0,0,0,.35);
+    text-decoration: none;
+  }
+  .hero-content .hero-amazon-mobile img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .hero-content .hero-amazon-mobile:focus-visible { outline: 3px solid #efbb42; outline-offset: 3px; }
+}
+@media (max-width: 380px) {
+  .hero-content .hero-amazon-mobile { width: 94px; margin-top: 8px; padding: 4px 7px; }
+}
