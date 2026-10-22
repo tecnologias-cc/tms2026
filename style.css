@@ -692,3 +692,65 @@ h1, h2, .hero-title, .year, .footer-phrase { font-family: "Cormorant Garamond", 
 @media (prefers-reduced-motion: reduce) {
   .hero-content .hero-price, .hero-content .hero-price::before { animation: none !important; }
 }
+
+/* Official Amazon purchase option — responsive and accessible */
+.purchase-actions { align-items: center; }
+.purchase-actions .purchase-store-button { text-decoration: none; }
+.purchase-amazon-button { display: inline-flex; align-items: center; justify-content: center; width: min(100%, 270px); min-height: 82px; margin-top: 20px; padding: 7px 18px; background: #fff; border: 1px solid rgba(255,255,255,.8); border-radius: 10px; transition: transform .25s ease, box-shadow .25s ease; }
+.purchase-amazon-button img { display: block; width: 195px; max-width: 100%; height: auto; object-fit: contain; }
+.purchase-amazon-button:focus-visible { outline: 3px solid #efbb42; outline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) { .purchase-amazon-button:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,.24); } }
+@media (max-width: 900px) { .purchase-actions { justify-items: center; gap: 12px; } .purchase-actions .purchase-store-button { width: min(100%, 320px); } .purchase-amazon-button { width: min(100%, 320px); min-height: 76px; margin-top: 0; } .purchase-amazon-button img { width: 185px; } }
+@media (prefers-reduced-motion: reduce) { .purchase-amazon-button { transition: none; } }
+
+/* Compra: opciones apiladas y centradas en todas las pantallas */
+.purchase-actions { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; margin-top: 28px; }
+.purchase-actions .purchase-store-button { margin: 0; width: min(100%, 270px); min-width: 0; }
+.purchase-actions .purchase-amazon-button { margin: 0; width: min(100%, 270px); min-height: 92px; }
+@media (max-width: 900px) {
+  .purchase-actions { display: flex; flex-direction: column; gap: 16px; }
+  .purchase-actions .purchase-store-button { width: min(100%, 270px); }
+  .purchase-actions .purchase-amazon-button { width: min(100%, 270px); min-height: 82px; }
+}
+
+/* Mensaje de disponibilidad Amazon en marquesina, sin alterar el diseño */
+.promo-marquee-group span { letter-spacing: .12em; }
+.promo-marquee-group i { color: #34220b; opacity: .72; }
+
+/* Enlace directo a Amazon en navegación principal y menú móvil */
+.site-header nav .nav-amazon {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 12px 17px; border-radius: 999px;
+  background: #f0b92d; border: 1px solid #f0b92d; color: #201509;
+  font-weight: 800; letter-spacing: .08em;
+  transition: background .2s ease, transform .2s ease;
+}
+.site-header nav .nav-amazon:hover { background: #ffd05b; transform: translateY(-2px); }
+@media (max-width: 1180px) and (min-width: 1101px) {
+  .site-header nav { gap: 12px; }
+  .site-header nav .nav-buy, .site-header nav .nav-amazon { padding: 10px 13px; }
+}
+@media (max-width: 1100px) {
+  .site-header nav .nav-amazon { min-height: 42px; padding: 12px 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .site-header nav .nav-amazon { transition: none; } }
+
+/* Logo oficial Amazon en el menú: proporciones conservadas */
+.site-header nav .nav-amazon {
+  background: #fff;
+  border-color: #fff;
+  padding: 5px 12px;
+  min-height: 42px;
+  overflow: hidden;
+}
+.site-header nav .nav-amazon:hover { background: #fff8eb; }
+.site-header nav .nav-amazon .nav-amazon-logo {
+  display: block;
+  width: 105px;
+  height: 42px;
+  object-fit: contain;
+}
+@media (max-width: 1100px) {
+  .site-header nav .nav-amazon { padding: 5px 16px; min-height: 46px; }
+  .site-header nav .nav-amazon .nav-amazon-logo { width: 112px; height: 48px; }
+}
